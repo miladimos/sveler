@@ -1,5 +1,4 @@
 export type ButtonType =
-    "default" | "outline" | "ghost"
-    | "square" | "pill";
+    "default" | "outline" | "ghost";
 
 export type ButtonStatus = "normal" | "active" | "disabled";

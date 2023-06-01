@@ -4,12 +4,13 @@
 
 	export let color: Colors = 'primary';
 	export let type: BadgeType = 'default';
+	export let pill: boolean = false;
 </script>
 
 {#if type === 'default'}
-	<span class="badge bg-{color}"><slot /></span>
+	<span class="badge bg-{color} {pill ? 'badge-pill' : ''}"><slot /></span>
 {:else if type === 'light'}
-	<span class="badge bg-{color}-lt"><slot /></span>
+	<span class="badge bg-{color}-lt {pill ? 'badge-pill' : ''}"><slot /></span>
 {:else if type === 'outline'}
-	<span class="badge badge-outline text-{color}"><slot /></span>
+	<span class="badge badge-outline text-{color} {pill ? 'badge-pill' : ''}"><slot /></span>
 {/if}

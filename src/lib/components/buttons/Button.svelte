@@ -4,19 +4,33 @@
 
 	export let type: ButtonType = 'default';
 	export let status: ButtonStatus = 'normal';
-	export let color: Colors = 'danger';
-	export let href: string | null = null;
+	export let color: Colors = 'primary';
+	export let pill: boolean = false;
+	export let square: boolean = false;
 </script>
 
-{#if href !== null}{:else}{/if}
-
 {#if type === 'default'}
-	<!-- {:else if} -->
+	<button class="btn btn-{color} 
+	{pill ? 'btn-pill' : ''}
+	 {square ? 'btn-square' : ''}"
+		on:click
+	>
+		<slot />
+	</button>
+{:else if type === 'ghost'}
+	<button
+		class="btn btn-ghost-{color} {pill ? 'btn-pill' : ''}
+		 {square ? 'btn-square' : ''}"
+		on:click
+	>
+		<slot />
+	</button>
+{:else if type === 'outline'}
+	<button
+		class="btn btn-outline-{color} {pill ? 'btn-pill' : ''}
+		 {square ? 'btn-square' : ''}"
+		on:click
+	>
+		<slot />
+	</button>
 {/if}
-<!-- <a href="#" class="btn btn-primary w-100"> Primary </a> -->
-
-<button class="btn btn-{color}" on:click >
-	<slot />
-</button>
-
-
