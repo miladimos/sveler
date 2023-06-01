@@ -1,12 +1,223 @@
-<!DOCTYPE html>
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta19
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div>%sveltekit.body%</div>
-	</body>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	%sveltekit.head%
+
+	<link rel="stylesheet" href="/src/lib/styles/globals.css">
+
+	<!-- <link href="./dist/css/tabler.min.css?1684106145" rel="stylesheet" />
+	<link href="./dist/css/tabler-flags.min.css?1684106145" rel="stylesheet" />
+	<link href="./dist/css/tabler-payments.min.css?1684106145" rel="stylesheet" />
+	<link href="./dist/css/tabler-vendors.min.css?1684106145" rel="stylesheet" />
+	<link href="./dist/css/demo.min.css?1684106145" rel="stylesheet" /> -->
+	<style>
+		@import url('https://rsms.me/inter/inter.css');
+
+		:root {
+			--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+		}
+
+		body {
+			font-feature-settings: "cv03", "cv04", "cv11";
+		}
+	</style>
+</head>
+
+<body>
+	<!-- <script src="./dist/js/demo-theme.min.js?1684106145"></script> -->
+	<div class="page">
+		<!-- Navbar -->
+		<header class="navbar navbar-expand-md d-print-none">
+			<div class="container-xl">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
+					aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+					<a href=".">
+						<img src="#" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+					</a>
+				</h1>
+				<div class="navbar-nav flex-row order-md-last">
+					<div class="nav-item d-none d-md-flex me-3">
+						<div class="btn-list">
+							<a href="https://github.com/tabler/tabler" class="btn" target="_blank" rel="noreferrer">
+								<!-- Download SVG icon from http://tabler-icons.io/i/brand-github -->
+								<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+									viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+									stroke-linecap="round" stroke-linejoin="round">
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path
+										d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+								</svg>
+								Source code
+							</a>
+						</div>
+					</div>
+
+					<div class="nav-item dropdown">
+						<a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+							aria-label="Open user menu">
+							<span class="avatar avatar-sm" style="background-image: url(#)"></span>
+							<div class="d-none d-xl-block ps-2">
+								<div>Paweł Kuna</div>
+								<div class="mt-1 small text-muted">UI Designer</div>
+							</div>
+						</a>
+						<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+							<a href="#" class="dropdown-item">Status</a>
+							<div class="dropdown-divider"></div>
+							<a href="./sign-in.html" class="dropdown-item">Logout</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<header class="navbar-expand-md">
+			<div class="collapse navbar-collapse" id="navbar-menu">
+				<div class="navbar">
+					<div class="container-xl">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link" href="./">
+									<span
+										class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+											viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+											stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+											<path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+											<path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+											<path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Home
+									</span>
+								</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
+									data-bs-auto-close="outside" role="button" aria-expanded="false">
+									<span
+										class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/lifebuoy -->
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+											viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+											stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+											<path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+											<path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+											<path d="M15 15l3.35 3.35" />
+											<path d="M9 15l-3.35 3.35" />
+											<path d="M5.65 5.65l3.35 3.35" />
+											<path d="M18.35 5.65l-3.35 3.35" />
+										</svg>
+									</span>
+									<span class="nav-link-title">
+										Help
+									</span>
+								</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item text-pink" href="https://github.com/sponsors/codecalm"
+										target="_blank" rel="noopener">
+										<!-- Download SVG icon from http://tabler-icons.io/i/heart -->
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-inline me-1" width="24"
+											height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+											fill="none" stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+											<path
+												d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+										</svg>
+										Sponsor project!
+									</a>
+								</div>
+							</li>
+						</ul>
+						<div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+							<form action="./" method="get" autocomplete="off" novalidate>
+								<div class="input-icon">
+									<span class="input-icon-addon">
+										<!-- Download SVG icon from http://tabler-icons.io/i/search -->
+										<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+											viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+											stroke-linecap="round" stroke-linejoin="round">
+											<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+											<path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+											<path d="M21 21l-6 -6" />
+										</svg>
+									</span>
+									<input type="text" value="" class="form-control" placeholder="Search…"
+										aria-label="Search in website">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="page-wrapper">
+			<!-- Page header -->
+			<div class="page-header d-print-none">
+				<div class="container-xl">
+					<div class="row g-2 align-items-center">
+						<div class="col">
+							<h2 class="page-title">
+								Examples
+							</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Page body -->
+			<div class="page-body">
+				<div class="container-xl">
+					<div>%sveltekit.body%</div>
+				</div>
+			</div>
+			<footer class="footer footer-transparent d-print-none">
+				<div class="container-xl">
+					<div class="row text-center align-items-center flex-row-reverse">
+						<div class="col-lg-auto ms-lg-auto">
+							<ul class="list-inline list-inline-dots mb-0">
+								<li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank"
+										class="link-secondary" rel="noopener">Source code</a></li>
+							</ul>
+						</div>
+						<div class="col-12 col-lg-auto mt-3 mt-lg-0">
+							<ul class="list-inline list-inline-dots mb-0">
+								<li class="list-inline-item">
+									Copyright &copy; 2023
+									<a href="." class="link-secondary">Tabler</a>.
+									All rights reserved.
+								</li>
+								<li class="list-inline-item">
+									<a href="./changelog.html" class="link-secondary" rel="noopener">
+										v1.0.0-beta19
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<!-- Libs JS -->
+	<!-- Tabler Core -->
+	<!-- <script src="./dist/js/tabler.min.js?1684106145" defer></script>
+	<script src="./dist/js/demo.min.js?1684106145" defer></script> -->
+</body>
+
 </html>
